@@ -44,7 +44,7 @@ varList_6 = 'six'
 my_dict['list'].append(varList_6)
 my_dict['list'].pop(1)
 
-# Для того, что хранится 
+# Для того, что хранится
 # под ключом 'dict': добавьте элемент с ключом ('i am a tuple',), любым значением удалите какой-нибудь элемент.
 my_dict['dict'][('i am a tuple',)] = '1'
 del my_dict['dict']['keyDict_4']
