@@ -32,9 +32,9 @@ my_dict = {
         'keyDict3': varDict_3,
         'keyDict4': varDict_4,
         'keyDict5': varDict_5
-        },
+    },
     'set': {varSet_1, varSet_2, varSet_3, varSet_4, varSet_5}
-    }
+}
 
 # Для того, что хранится под ключом 'tuple': выведите на экран последний элемент
 print(my_dict['tuple'][-1])
@@ -47,7 +47,7 @@ my_dict['list'].pop(1)
 # Для того, что хранится
 # под ключом 'dict': добавьте элемент с ключом ('i am a tuple',), любым значением удалите какой-нибудь элемент.
 my_dict['dict'][('i am a tuple',)] = '1'
-del my_dict['dict']['keyDict_4']
+del my_dict['dict']['keyDict4']
 
 # Для того, что хранится под ключом 'set': добавьте новый элемент в множеств, удалите элемент из множества.
 varSet_6 = 6
