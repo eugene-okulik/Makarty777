@@ -53,3 +53,6 @@ del my_dict['dict']['keyDict4']
 varSet_6 = 6
 my_dict['set'].add(varSet_6)
 my_dict['set'].remove(varSet_6)
+
+# Выод на экран словря
+print(my_dict)
