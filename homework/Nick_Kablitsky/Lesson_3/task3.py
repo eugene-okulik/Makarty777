@@ -4,4 +4,4 @@ MidleArif, MidleGeom = ((var1_int + var2_int) / 2), ((var1_int * var2_int) ** 0.
 print(
     'MidleArif:', MidleArif,
     'MidleGeom:', MidleGeom
-    )
+)
