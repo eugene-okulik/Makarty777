@@ -2,10 +2,17 @@
 text_1 = 'результат операции: 42'
 text_2 = 'результат операции: 514'
 text_3 = 'результат работы программы: 9'
+example_1 = 'результат операции: 4000000000002'
 
 # помощью срезов и метода index получите из каждой строки с результатом число,
 # прибавьте к полученному числу 10, результат сложения распечатайте.
-index_1 = int(text_1[-2:]) + 10
-index_2 = int(text_2[-3:]) + 10
-index_3 = int(text_3[-1:]) + 10
-print(index_1, index_2, index_3)
+index_1 = int(text_1[19:]) + 10
+index_2 = int(text_2[19:]) + 10
+index_3 = int(text_3[27:]) + 10
+example_index_1 = int(example_1[19:]) + 10
+print(
+    'index_1:', index_1,
+    'index_2:', index_2,
+    'index_3:', index_3,
+    'example_index_1:', example_index_1
+)
