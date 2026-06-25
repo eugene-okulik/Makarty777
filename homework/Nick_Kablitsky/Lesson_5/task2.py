@@ -6,10 +6,10 @@ example_1 = 'результат операции: 4000000000006'
 
 # помощью срезов и метода index получите из каждой строки с результатом число,
 # прибавьте к полученному числу 10, результат сложения распечатайте.
-index_1 = int(text_1[19:]) + 10
-index_2 = int(text_2[19:]) + 10
-index_3 = int(text_3[27:]) + 10
-example_index_1 = int(example_1[19:]) + 10
+index_1 = int(text_1[text_1.index(':') + 1:]) + 10
+index_2 = int(text_2[text_2.index(':') + 1:]) + 10
+index_3 = int(text_3[text_3.index(':') + 1:]) + 10
+example_index_1 = int(example_1[example_1.index(':') + 1:]) + 10
 print(
     'index_1:', index_1,
     'index_2:', index_2,
