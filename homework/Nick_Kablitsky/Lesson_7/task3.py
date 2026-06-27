@@ -12,8 +12,8 @@
 
 base, lens, scet = 'результат операции: 34', len('результат операции: 54'), 0
 for index in range(lens):
-    if base[index] != ":": 
+    if base[index] != ':':
         scet += 1
-    else: 
+    else:
         break
 print('Наше число c эднутыми 10: ', int(base[scet + 1:]) + 10)
