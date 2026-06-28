@@ -12,6 +12,6 @@ while True:
     name = int(input('Введите число: '))
     if name == 7:
         print('Поздравляю! Вы угадали!')
-        exit()
+        break
     else:
         print('Попробуйте снов')
