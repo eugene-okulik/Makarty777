@@ -6,8 +6,10 @@
 # но уже преобразованного.
 
 # Непосредственно текст
-text = 'Etiam tincidunt neque erat, quis molestie enim imperdiet vel. ' \
-'Integer urna nisl, facilisis vitae semper at, dignissim vitae libero'
+text = (
+    'Etiam tincidunt neque erat, quis molestie enim imperdiet vel. ' \
+    'Integer urna nisl, facilisis vitae semper at, dignissim vitae libero'
+)
 
 # Инициализация словаря и дробление текста
 words = text.split()
