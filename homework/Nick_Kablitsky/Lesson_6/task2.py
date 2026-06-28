@@ -6,14 +6,12 @@
 # Последовательность от 1 до 100 можно создать с помощью range(1, 101)
 # Каждое задание выполняйте в отдельном файле
 
-sclad = []
 for i in range(1, 101):
     if (i % 3 == 0) and (i % 5 == 0):
-        sclad.append('FuzzBuzz')
+        print('FuzzBuzz')
     elif (i % 3 == 0):
-        sclad.append('Fuzz')
+        print('Fuzz')
     elif (i % 5 == 0):
-        sclad.append('Buzz')
+        print('Buzz')
     else:
-        sclad.append(i)
-print(sclad)
+        print(i)
