@@ -36,5 +36,5 @@ var_set_6 = 6
 my_dict['set'].add(var_set_6)
 my_dict['set'].remove(var_set_6)
 
-# Выод на экран словря.
+# Выод на экран словря
 print(my_dict)
