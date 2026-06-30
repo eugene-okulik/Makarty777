@@ -11,12 +11,14 @@ def fib_generator():
         # ЛОГИКУ ФИБОНАЧИ ТОЖ НЕ ПОНИМАЮ, ЭТО КАК РЯДЫ, CУЩЕСТВУЮТ ДЛЯ ГАЛОЧКИ?
         a, b = b, a + b
 
+
 def get_n_numbers(n):
     gen = fib_generator()
     result = 0
     for i in range(n):
         result = next(gen)
     return result
+
 
 print(f'Пятое число имеет вид: {get_n_numbers(5)}')
 print(f'Пятое число имеет вид: {get_n_numbers(200)}')
