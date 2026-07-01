@@ -10,6 +10,7 @@ import random
 while True:
     salary, bonus = input('Введите целое число: '), bool(random.randint(0, 1))
     if salary.isdigit():
+        salary = int(salary)
         if bonus:
             print(f"{salary}, {bonus} - '${salary + random.randint(1, 10000)}'")
         else:
