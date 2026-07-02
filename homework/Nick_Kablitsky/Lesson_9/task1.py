@@ -1,7 +1,8 @@
 # Дана такая дата: "Jan 15, 2023 - 12:05:33"
 # Преобразуйте эту дату в питоновский формат, после этого:
 
-import datetime, locale
+import datetime
+import locale
 
 # Принудительно инглиш взял с нейронки
 locale.setlocale(locale.LC_TIME, 'English_United States.1252')
