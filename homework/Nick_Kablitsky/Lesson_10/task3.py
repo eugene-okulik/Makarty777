@@ -1,4 +1,4 @@
-# Напишите программу: Есть функция которая делает одну из арифметических операций с переданными 
+# Напишите программу: Есть функция которая делает одну из арифметических операций с переданными
 # ей числами (числа и операция передаются в аргументы функции). Функция выглядит примерно так:
 
 def calc(first, second):
@@ -17,7 +17,8 @@ def calc(first, second):
             func(operation, result)
         return wrapper
     return decorator
-    
+ 
+
 # Программа спрашивает у пользователя 2 числа (вне функции)
 first, second = int(input('Введите первое число: ')), int(input('Введите второе число: '))
 
@@ -25,6 +26,7 @@ first, second = int(input('Введите первое число: ')), int(inpu
 @calc(first, second)
 def calculator(operation, result):
     print(f'{first} {operation} {second} = {result}')
+
 
 # если одно из чисел отрицательное - умножени
 if (0 > first) or (0 > second):

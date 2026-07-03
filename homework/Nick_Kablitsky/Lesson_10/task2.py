@@ -12,7 +12,7 @@ def repeat_me(count):
     return decorator_1
 
 
-@repeat_me(count = 2)
+@repeat_me(count=2)
 def example(text):
     print(text)
 

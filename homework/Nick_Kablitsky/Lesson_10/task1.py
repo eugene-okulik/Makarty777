@@ -16,4 +16,5 @@ def finish_me(func):
 def example(*args):
     print(*args)
 
+
 example('print me')
