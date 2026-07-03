@@ -11,6 +11,7 @@ def finish_me(func):
         return result
     return come_back
 
+
 @finish_me
 def example(*args):
     print(*args)

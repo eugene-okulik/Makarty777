@@ -28,7 +28,7 @@ PRICE_LIST = '''
 рюкзак 500р
 '''
 
-index(' ')
-lines = PRICE_LIST.splitlines.append()
-result = lines[]
+
 print(lines)
+
+
