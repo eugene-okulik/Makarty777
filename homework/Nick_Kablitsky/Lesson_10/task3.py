@@ -17,7 +17,7 @@ def calc(first, second):
             func(operation, result)
         return wrapper
     return decorator
- 
+
 
 # Программа спрашивает у пользователя 2 числа (вне функции)
 first, second = int(input('Введите первое число: ')), int(input('Введите второе число: '))
