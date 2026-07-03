@@ -8,7 +8,7 @@ def finish_me(func):
     def come_back(*args):
         result = func(*args)
         print('Декоратор отработал')
-        return 
+        return result
     return come_back
 
 @finish_me
