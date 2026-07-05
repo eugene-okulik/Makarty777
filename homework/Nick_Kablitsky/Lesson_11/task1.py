@@ -68,12 +68,11 @@ class school_book:
                 Количество страниц: {self.number_of_pages},\n
                 ISBN: {self.isbn}'''
                 )
-
-
         if self.reserved:
             print(base_info + ' Книга зарезервирована!')
         else:
             print(base_info + ' Книга доступна!')
+
 
 
 def add_book():
@@ -93,6 +92,7 @@ def add_book():
         page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved
         )
     liabary.append(new_book)
+
 
 
 def show_books():
@@ -130,7 +130,7 @@ def dereservation_book():
 def testing_def():
     for i in range(5):
         book_title = (f'Name is {i + 1}')
-        page_material  = (random.choice(['Кожзам', 'Пластик', 'Кожа']))
+        page_material = (random.choice(['Кожзам', 'Пластик', 'Кожа']))
         presence_of_text = (random.choice(['Нет', 'Да']))
         author = (random.choice(['А.С Летчик-Пушки', 'М.Ю Лермонтов', 'С.У Ка(China inc)', 'Mr.Beast']))
         number_of_pages = (random.randint(0, 10000))
@@ -142,7 +142,7 @@ def testing_def():
             reserved = False
         new_book = book(
             page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved
-            )
+        )
         liabary.append(new_book)
 
 
@@ -155,11 +155,11 @@ def programma():
             1. Добавить книгу
             2. Посмотреть список доступных книг
             3. Зарезервировать книгу
-            4. Отменить резервацию книги 
+            4. Отменить резервацию книги
             5. Выйти из систему
             ___________________________________________________
-            
-            Ваш ответ: 
+
+            Ваш ответ:
             '''
         ))
         if answer == 0:
