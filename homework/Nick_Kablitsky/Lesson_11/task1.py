@@ -29,7 +29,18 @@
 # Название: Алгебра, Автор: Иванов, страниц: 200, предмет: Математика, класс: 9
 
 # В ПРОЦЕССЕ, ЕСЛИ ЕСТЬ ЖЕЛАНИЕ, ТО ЖДУ РЕКОМЕНДАЦИИ И АНЕКДОТЫ ;)
-
+        # self.subject = subject
+        # self.study_class = study_class
+        # self.availability = availability
+# class school_book:
+#    def __ini__(self, page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved):
+#        self.page_material = page_material
+#        self.presence_of_text = presence_of_text
+#        self.book_title = book_title
+#        self.author = author
+#        self.number_of_pages = number_of_pages
+#        self.isbn = isbn
+#        self.reserved = reserved
 
 import random
 liabary = []
@@ -46,27 +57,13 @@ class book:
         self.reserved = reserved
 
 
-class school_book:
-    def __ini__(self, page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved):
-        # self.subject = subject
-        # self.study_class = study_class
-        # self.availability = availability
-        self.page_material = page_material
-        self.presence_of_text = presence_of_text
-        self.book_title = book_title
-        self.author = author
-        self.number_of_pages = number_of_pages
-        self.isbn = isbn
-        self.reserved = reserved
-
     def show_info(self):
         base_info = (
-                f'''
-                Материал страниц: {self.page_material},
+                f'''Материал страниц: {self.page_material},
                 Наличие текста: {self.presence_of_text},
-                Название книги: {self.book_title},\n
-                Автор: {self.author},\n
-                Количество страниц: {self.number_of_pages},\n
+                Название книги: {self.book_title},
+                Автор: {self.author},
+                Количество страниц: {self.number_of_pages},
                 ISBN: {self.isbn}'''
         )
         if self.reserved:
@@ -83,7 +80,6 @@ def add_book():
     number_of_pages = input('Количество страниц? ')
     isbn = int(input('Введите номер isbn: '))
     reserved = (input('Зарезервирована ли книга (да/нет)? ')).lower()
-    # lern_book = input('Ваша литература относится к учебной? ')
     if reserved == 'да':
         reserved = True
     else:
@@ -127,7 +123,7 @@ def dereservation_book():
 
 
 def testing_def():
-    for i in range(5):
+    for i in range(6):
         book_title = (f'Name is {i + 1}')
         page_material = (random.choice(['Кожзам', 'Пластик', 'Кожа']))
         presence_of_text = (random.choice(['Нет', 'Да']))
