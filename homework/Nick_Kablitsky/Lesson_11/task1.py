@@ -28,12 +28,12 @@
 # если не зарезервирован:
 # Название: Алгебра, Автор: Иванов, страниц: 200, предмет: Математика, класс: 9
 
-
-
 # В ПРОЦЕССЕ, ЕСЛИ ЕСТЬ ЖЕЛАНИЕ, ТО ЖДУ РЕКОМЕНДАЦИИ И АНЕКДОТЫ ;)
+
 
 import random
 liabary = []
+
 
 class book:
     def __init__(self, page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved):
@@ -44,6 +44,7 @@ class book:
         self.number_of_pages = number_of_pages
         self.isbn = isbn
         self.reserved = reserved
+
 
 class school_book:
     def __ini__(self, page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved):
