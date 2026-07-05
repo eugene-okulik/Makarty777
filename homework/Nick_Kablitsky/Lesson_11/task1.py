@@ -75,7 +75,6 @@ class school_book:
             print(base_info + ' Книга доступна!')
 
 
-
 def add_book():
     book_title = input('Название книги? ')
     page_material = input('Какой материал страниц? ')
@@ -93,7 +92,6 @@ def add_book():
         page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved
     )
     liabary.append(new_book)
-
 
 
 def show_books():
