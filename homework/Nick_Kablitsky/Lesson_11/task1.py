@@ -61,13 +61,14 @@ class school_book:
 
     def show_info(self):
         base_info = (
-                f'''Материал страниц: {self.page_material},
+                f'''
+                Материал страниц: {self.page_material},
                 Наличие текста: {self.presence_of_text},
                 Название книги: {self.book_title},\n
                 Автор: {self.author},\n
                 Количество страниц: {self.number_of_pages},\n
                 ISBN: {self.isbn}'''
-                )
+        )
         if self.reserved:
             print(base_info + ' Книга зарезервирована!')
         else:
@@ -77,7 +78,7 @@ class school_book:
 
 def add_book():
     book_title = input('Название книги? ')
-    page_material  = input('Какой материал страниц? ')
+    page_material = input('Какой материал страниц? ')
     presence_of_text = input('Наличие текста? ')
     author = input('Автор? ')
     number_of_pages = input('Количество страниц? ')
@@ -90,7 +91,7 @@ def add_book():
         reserved = False
     new_book = book(
         page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved
-        )
+    )
     liabary.append(new_book)
 
 
@@ -149,7 +150,7 @@ def testing_def():
 def programma():
     while True:
         answer = int(input(
-            f'''
+        f'''
             Что вы хотите сделать (номер подходящего ответа)?
             0. Я тестировщик, мне нужно 5 рыбных книг
             1. Добавить книгу
@@ -160,7 +161,7 @@ def programma():
             ___________________________________________________
 
             Ваш ответ:
-            '''
+        '''
         ))
         if answer == 0:
             testing_def()
