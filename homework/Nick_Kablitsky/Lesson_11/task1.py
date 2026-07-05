@@ -29,18 +29,18 @@
 # Название: Алгебра, Автор: Иванов, страниц: 200, предмет: Математика, класс: 9
 
 # В ПРОЦЕССЕ, ЕСЛИ ЕСТЬ ЖЕЛАНИЕ, ТО ЖДУ РЕКОМЕНДАЦИИ И АНЕКДОТЫ ;)
-        # self.subject = subject
-        # self.study_class = study_class
-        # self.availability = availability
+# self.subject = subject
+# self.study_class = study_class
+# self.availability = availability
 # class school_book:
-#    def __ini__(self, page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved):
-#        self.page_material = page_material
-#        self.presence_of_text = presence_of_text
-#        self.book_title = book_title
-#        self.author = author
-#        self.number_of_pages = number_of_pages
-#        self.isbn = isbn
-#        self.reserved = reserved
+# def __ini__(self, page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved):
+# self.page_material = page_material
+# self.presence_of_text = presence_of_text
+# self.book_title = book_title
+# self.author = author
+# self.number_of_pages = number_of_pages
+# self.isbn = isbn
+# self.reserved = reserved
 
 import random
 liabary = []
@@ -56,10 +56,9 @@ class book:
         self.isbn = isbn
         self.reserved = reserved
 
-
     def show_info(self):
         base_info = (
-                f'''Материал страниц: {self.page_material},
+            f'''Материал страниц: {self.page_material},
                 Наличие текста: {self.presence_of_text},
                 Название книги: {self.book_title},
                 Автор: {self.author},
