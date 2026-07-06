@@ -28,25 +28,11 @@
 # если не зарезервирован:
 # Название: Алгебра, Автор: Иванов, страниц: 200, предмет: Математика, класс: 9
 
-# В ПРОЦЕССЕ, ЕСЛИ ЕСТЬ ЖЕЛАНИЕ, ТО ЖДУ РЕКОМЕНДАЦИИ И АНЕКДОТЫ ;)
-# self.subject = subject
-# self.study_class = study_class
-# self.availability = availability
-# class school_book:
-# def __ini__(self, page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved):
-# self.page_material = page_material
-# self.presence_of_text = presence_of_text
-# self.book_title = book_title
-# self.author = author
-# self.number_of_pages = number_of_pages
-# self.isbn = isbn
-# self.reserved = reserved
-
 import random
 liabary = []
 
 
-class book:
+class Book:
     def __init__(self, page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved):
         self.page_material = page_material
         self.presence_of_text = presence_of_text
@@ -71,6 +57,33 @@ class book:
             print(base_info + ' Книга доступна!')
 
 
+class Lern_book(Book):
+    def __init__(self, page_material, presence_of_text, book_title, author,
+                 number_of_pages, isbn, reserved, discipline, auditory, zdanie):
+        super().__init__(page_material, presence_of_text, book_title, author, 
+                        number_of_pages, isbn, reserved)
+        self.discipline = discipline
+        self.auditory = auditory
+        self.zdanie = zdanie
+
+
+    def show_info(self):
+        base_info = (
+            f'''Материал страниц: {self.page_material},
+            Наличие текста: {self.presence_of_text},
+            Название книги: {self.book_title},
+            Автор: {self.author},
+            Количество страниц: {self.number_of_pages},
+            Предмет: {self.discipline},
+            Класс: {self.auditory},
+            Наличие заданий: {self.zdanie}
+            '''
+        )
+        if self.reserved:
+            print(base_info + ', зарезервирована')
+        else:
+            print(base_info + ', доступна')
+
 def add_book():
     book_title = input('Название книги? ')
     page_material = input('Какой материал страниц? ')
@@ -83,7 +96,7 @@ def add_book():
         reserved = True
     else:
         reserved = False
-    new_book = book(
+    new_book = Book(
         page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved
     )
     liabary.append(new_book)
@@ -121,22 +134,45 @@ def dereservation_book():
         print('Такой книги нет в списке')
 
 
+def gen_random_book(i):
+    book_title = (f'Name is {i + 1}')
+    page_material = (random.choice(['Кожзам', 'Пластик', 'Кожа']))
+    presence_of_text = (random.choice(['Нет', 'Да']))
+    author = (random.choice(['А.С Летчик-Пушки', 'М.Ю Лермонтов', 'С.У Ка(China inc)', 'Mr.Beast']))
+    number_of_pages = (random.randint(0, 10000))
+    isbn = (int(str(random.randint(323232, 3287329362)) + '777'))
+    reserved = (random.choice(['Нет', 'Да'])).lower()
+    if reserved == 'да':
+        reserved = True
+    else:
+        reserved = False
+    return {
+    'page_material': page_material,
+    'presence_of_text': presence_of_text,
+    'book_title': book_title,
+    'author': author,
+    'number_of_pages': number_of_pages,
+    'isbn': isbn,
+    'reserved': reserved
+    }
+
 def testing_def():
     for i in range(6):
-        book_title = (f'Name is {i + 1}')
-        page_material = (random.choice(['Кожзам', 'Пластик', 'Кожа']))
-        presence_of_text = (random.choice(['Нет', 'Да']))
-        author = (random.choice(['А.С Летчик-Пушки', 'М.Ю Лермонтов', 'С.У Ка(China inc)', 'Mr.Beast']))
-        number_of_pages = (random.randint(0, 10000))
-        isbn = (int(str(random.randint(323232, 3287329362)) + '777'))
-        reserved = (random.choice(['Нет', 'Да'])).lower()
-        if reserved == 'да':
-            reserved = True
-        else:
-            reserved = False
-        new_book = book(
-            page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved
-        )
+        data = gen_random_book(i)
+        new_book = Book(**data)
+        liabary.append(new_book)
+
+
+def testing_lern_def():
+    for i in range(6):
+        data = gen_random_book(i)
+        discipline = (random.choice(['Математика', 'Болталогия', 'Физика'])) 
+        auditory = (random.choice(['777', '67', '666']))
+        zdanie = (random.choice(['Нет', 'Да'])).lower()
+        data['discipline'] = discipline
+        data['auditory'] = auditory
+        data['zdanie'] = zdanie
+        new_book = Lern_book(**data)
         liabary.append(new_book)
 
 
@@ -152,7 +188,11 @@ def programma():
             4. Отменить резервацию книги
             5. Выйти из систему
             ___________________________________________________
-
+            00. Я тестировщик, мне нужно 5 учебных рыбных книг
+            22. Посмотреть список доступных учебных книг
+            33. Зарезервировать учебную книгу
+            44. Отменить резервацию учебную книги
+            ___________________________________________________
             Ваш ответ:
             '''
         ))
@@ -165,6 +205,14 @@ def programma():
         elif answer == 3:
             reservation_book()
         elif answer == 4:
+            dereservation_book()
+        if answer == 00:
+            testing_lern_def()
+        elif answer == 22:
+            show_books()
+        elif answer == 33:
+            reservation_book()
+        elif answer == 44:
             dereservation_book()
         elif answer == 5:
             exit()
