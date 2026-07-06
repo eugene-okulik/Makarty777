@@ -60,8 +60,9 @@ class Book:
 class Lern_book(Book):
     def __init__(self, page_material, presence_of_text, book_title, author,
                  number_of_pages, isbn, reserved, discipline, auditory, zdanie):
-        super().__init__(page_material, presence_of_text, book_title, author, 
-                        number_of_pages, isbn, reserved)
+        super().__init__(
+            page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved
+        )
         self.discipline = discipline
         self.auditory = auditory
         self.zdanie = zdanie
@@ -147,14 +148,14 @@ def gen_random_book(i):
     else:
         reserved = False
     return {
-            'page_material': page_material,
-            'presence_of_text': presence_of_text,
-            'book_title': book_title,
-            'author': author,
-            'number_of_pages': number_of_pages,
-            'isbn': isbn,
-            'reserved': reserved
-            }
+        'page_material': page_material,
+        'presence_of_text': presence_of_text,
+        'book_title': book_title,
+        'author': author,
+        'number_of_pages': number_of_pages,
+        'isbn': isbn,
+        'reserved': reserved
+    }
 
 
 def testing_def():
