@@ -33,7 +33,7 @@ liabary = []
 
 
 class Book:
-    def __init__(self, page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved):
+    def __init__(self, book_title, author, number_of_pages, isbn, reserved, page_material='бумага', presence_of_text=True):
         self.page_material = page_material
         self.presence_of_text = presence_of_text
         self.book_title = book_title
@@ -57,9 +57,9 @@ class Book:
             print(base_info + ' Книга доступна!')
 
 
-class Lern_book(Book):
-    def __init__(self, page_material, presence_of_text, book_title, author,
-                 number_of_pages, isbn, reserved, discipline, auditory, zdanie):
+class LernBook(Book):
+    def __init__(self, book_title, author, number_of_pages, isbn, reserved, discipline,
+                  auditory, zdanie, page_material='бумага', presence_of_text=True):
         super().__init__(
             page_material, presence_of_text, book_title, author, number_of_pages, isbn, reserved
         )
@@ -174,7 +174,7 @@ def testing_lern_def():
         data['discipline'] = discipline
         data['auditory'] = auditory
         data['zdanie'] = zdanie
-        new_book = Lern_book(**data)
+        new_book = LernBook(**data)
         liabary.append(new_book)
 
 
