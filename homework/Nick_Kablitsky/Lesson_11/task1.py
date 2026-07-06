@@ -66,7 +66,6 @@ class Lern_book(Book):
         self.auditory = auditory
         self.zdanie = zdanie
 
-
     def show_info(self):
         base_info = (
             f'''Материал страниц: {self.page_material},
@@ -83,6 +82,7 @@ class Lern_book(Book):
             print(base_info + ', зарезервирована')
         else:
             print(base_info + ', доступна')
+
 
 def add_book():
     book_title = input('Название книги? ')
@@ -147,14 +147,15 @@ def gen_random_book(i):
     else:
         reserved = False
     return {
-    'page_material': page_material,
-    'presence_of_text': presence_of_text,
-    'book_title': book_title,
-    'author': author,
-    'number_of_pages': number_of_pages,
-    'isbn': isbn,
-    'reserved': reserved
-    }
+            'page_material': page_material,
+            'presence_of_text': presence_of_text,
+            'book_title': book_title,
+            'author': author,
+            'number_of_pages': number_of_pages,
+            'isbn': isbn,
+            'reserved': reserved
+            }
+
 
 def testing_def():
     for i in range(6):
@@ -166,7 +167,7 @@ def testing_def():
 def testing_lern_def():
     for i in range(6):
         data = gen_random_book(i)
-        discipline = (random.choice(['Математика', 'Болталогия', 'Физика'])) 
+        discipline = (random.choice(['Математика', 'Болталогия', 'Физика']))
         auditory = (random.choice(['777', '67', '666']))
         zdanie = (random.choice(['Нет', 'Да'])).lower()
         data['discipline'] = discipline
