@@ -33,7 +33,7 @@ liabary = []
 
 
 class Book:
-    def __init__(self, book_title, author, number_of_pages, isbn, 
+    def __init__(self, book_title, author, number_of_pages, isbn,
                  reserved, page_material='бумага', presence_of_text=True):
         self.page_material = page_material
         self.presence_of_text = presence_of_text
