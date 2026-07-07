@@ -29,9 +29,7 @@ class Bouquet():
     def sort_by_price(self):
         self.flowers.sort(key=lambda flower: flower.price)
 
-    def search_flower_parameters(
-        self, find_arg_lifetime=None, fresh=None, color=None, leng_cabels=None, price=None
-        ):
+    def search_flower_parameters(self, find_arg_lifetime=None, fresh=None, color=None, leng_cabels=None, price=None):
         resault = []
         for flower in self.flowers:
             if find_arg_lifetime is not None and flower.chastota_yxashivania < find_arg_lifetime:
@@ -55,7 +53,6 @@ class Flowers():
         self.fresh = fresh
         self.color = color
         self.leng_cabels = leng_cabels
-
 
     def __str__(self):
         return f'Цвет {self.color}, время жизни: {self.chastota_yxashivania} дней, цена: {self.price}'
