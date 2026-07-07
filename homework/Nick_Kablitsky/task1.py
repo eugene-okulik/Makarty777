@@ -21,18 +21,27 @@ class Bouquet():
         return sum(flower.price for flower in self.flowers)
 
     def wilting_time(self):
-        return sum(flower.chastota_yxashivania for flower in self.flowers) / len(self.flowers)
+        return sum(flower.frequency_courtship for flower in self.flowers) / len(self.flowers)
 
     def find_arg_lifetime(self, min_days):
-        return [flower for flower in self.flowers if flower.chastota_yxashivania >= min_days]
+        return [flower for flower in self.flowers if flower.frequency_courtship >= min_days]
 
     def sort_by_price(self):
         self.flowers.sort(key=lambda flower: flower.price)
 
+    def sort_by_fresh(self):
+        self.flowers.sort(key=lambda flower: flower.fresh, reverse=True)
+
+    def sort_by_color(self):
+        self.flowers.sort(key=lambda flower: flower.color)
+
+    def sort_by_stem_length(self):
+        self.flowers.sort(key=lambda flower: flower.leng_cabels, reverse=True)
+
     def search_flower_parameters(self, find_arg_lifetime=None, fresh=None, color=None, leng_cabels=None, price=None):
         resault = []
         for flower in self.flowers:
-            if find_arg_lifetime is not None and flower.chastota_yxashivania < find_arg_lifetime:
+            if find_arg_lifetime is not None and flower.frequency_courtship < find_arg_lifetime:
                 continue
             if fresh is not None and flower.fresh != fresh:
                 continue
@@ -44,49 +53,49 @@ class Bouquet():
         return resault
 
 
-class Flowers():
-    def __init__(self, zapah, lepestki, chastota_yxashivania, price, fresh, color, leng_cabels):
-        self.zapah = zapah
-        self.lepestki = lepestki
-        self.chastota_yxashivania = chastota_yxashivania
+class Flower():
+    def __init__(self, smell, petals, frequency_courtship, price, fresh, color, leng_cabels):
+        self.smell = smell
+        self.petals = petals
+        self.frequency_courtship = frequency_courtship
         self.price = price
         self.fresh = fresh
         self.color = color
         self.leng_cabels = leng_cabels
 
     def __str__(self):
-        return f'Цвет {self.color}, время жизни: {self.chastota_yxashivania} дней, цена: {self.price}'
+        return f'Цвет {self.color}, время жизни: {self.frequency_courtship} дней, цена: {self.price}'
 
     def __repr__(self):
         return self.__str__()
 
 
-class HomeFlowers(Flowers):
-    def __init__(self, zapah, lepestki, chastota_yxashivania, price, fresh, color, leng_cabels, zdanie):
-        super().__init__(zapah, lepestki, chastota_yxashivania, price, fresh, color, leng_cabels)
-        self.zdanie = zdanie
+class HomeFlowers(Flower):
+    def __init__(self, smell, petals, frequency_courtship, price, fresh, color, leng_cabels, building):
+        super().__init__(smell, petals, frequency_courtship, price, fresh, color, leng_cabels)
+        self.building = building
 
 
-class PresentFlowers(Flowers):
-    def __init__(self, zapah, lepestki, chastota_yxashivania, price, fresh, color, leng_cabels, podarok):
-        super().__init__(zapah, lepestki, chastota_yxashivania, price, fresh, color, leng_cabels)
-        self.podarok = podarok
+class PresentFlowers(Flower):
+    def __init__(self, smell, petals, frequency_courtship, price, fresh, color, leng_cabels, present):
+        super().__init__(smell, petals, frequency_courtship, price, fresh, color, leng_cabels)
+        self.present = present
 
 
 flower1 = HomeFlowers(
-    zapah=False, lepestki=True, chastota_yxashivania=7, price=500,
-    zdanie=True, fresh=True, color='Red', leng_cabels=0.2
+    smell=False, petals=True, frequency_courtship=7, price=500,
+    building=True, fresh=True, color='Red', leng_cabels=0.2
 )
 flower2 = HomeFlowers(
-    zapah=True, lepestki=False, chastota_yxashivania=365, price=0, zdanie=True,
+    smell=True, petals=False, frequency_courtship=365, price=0, building=True,
     fresh=True, color='Blue', leng_cabels=0.5
 )
 flower3 = PresentFlowers(
-    zapah=True, lepestki=True, chastota_yxashivania=2, price=730, podarok=True,
+    smell=True, petals=True, frequency_courtship=2, price=730, present=True,
     fresh=True, color='White', leng_cabels=0.3
 )
 flower4 = PresentFlowers(
-    zapah=True, lepestki=True, chastota_yxashivania=1, price=8000, podarok=True,
+    smell=True, petals=True, frequency_courtship=1, price=8000, present=True,
     fresh=False, color='Red', leng_cabels=0.5
 )
 
@@ -100,3 +109,23 @@ print(f'В букете {len(my_bouquet.flowers)} цветов')
 print(f'Перкуп цветов говорит, что курс не стабильные, букет стоит: {my_bouquet.total_price_Bouquet()}')
 print(f'Сортировка по увяданию: {my_bouquet.wilting_time()}')
 print(f'Среднее время жизни цветов в букете: {my_bouquet.find_arg_lifetime(3)}')
+
+print('_________________________________________________________________________')
+my_bouquet.sort_by_price()
+for flower in my_bouquet.flowers:
+    print(f'Сортировка по цене:  {flower}')
+
+print('_________________________________________________________________________')
+my_bouquet.sort_by_fresh()
+for flower in my_bouquet.flowers:
+    print(f'Сортировка по свежест:  {flower}')
+
+print('_________________________________________________________________________')
+my_bouquet.sort_by_color()
+for flower in my_bouquet.flowers:
+    print(f'Сортировка по цвету:  {flower}')
+
+print('_________________________________________________________________________')
+my_bouquet.sort_by_stem_length()
+for flower in my_bouquet.flowers:
+    print(f'Сортировка по длине стебля:  {flower}')
