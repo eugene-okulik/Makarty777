@@ -17,7 +17,7 @@ class Bouquet():
     def add_flower(self, flower):
         self.flowers.append(flower)
 
-    def total_price_Bouquet(self): 
+    def total_price_Bouquet(self):
         return sum(flower.price for flower in self.flowers)
 
     def wilting_time(self):
@@ -59,7 +59,7 @@ class Flowers():
 
     def __str__(self):
         return f'Цвет {self.color}, время жизни: {self.chastota_yxashivania} дней, цена: {self.price}'
-    
+
     def __repr__(self):
         return self.__str__()
 
@@ -68,6 +68,7 @@ class HomeFlowers(Flowers):
     def __init__(self, zapah, lepestki, chastota_yxashivania, price, fresh, color, leng_cabels, zdanie):
         super().__init__(zapah, lepestki, chastota_yxashivania, price, fresh, color, leng_cabels)
         self.zdanie = zdanie
+
 
 class PresentFlowers(Flowers):
     def __init__(self, zapah, lepestki, chastota_yxashivania, price, fresh, color, leng_cabels, podarok):
@@ -84,8 +85,8 @@ flower2 = HomeFlowers(
     fresh=True, color='Blue', leng_cabels=0.5
 )
 flower3 = PresentFlowers(
-    zapah = True, lepestki = True, chastota_yxashivania = 2, price = 730, podarok = True,
-    fresh = True, color = 'White', leng_cabels = 0.3
+    zapah=True, lepestki=True, chastota_yxashivania=2, price=730, podarok=True,
+    fresh=True, color='White', leng_cabels=0.3
 )
 flower4 = PresentFlowers(
     zapah=True, lepestki=True, chastota_yxashivania=1, price=8000, podarok=True,
