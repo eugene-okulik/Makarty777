@@ -5,23 +5,15 @@
 # потом дефис и после него текст. У вас должен получиться код, который находит даты и для даты под
 # номером один в коде должно быть реализовано то действие, которое написано в файле после этой даты.
 # Ну и так далее для каждой даты.
+# pattern = (number, data, defis, text)
+# re.search(r'\d+', var_data)
+# import re
 
-data = with open(file: homework/eugene_okulik/hw_13/data.txt,
-    mode: OpenTextMode = "r",
-    buffering: int = -1,
-    encoding: str | None = None,
-    errors: str | None = None,
-    newline: str | None = None,
-    closefd: bool = True,
-    opener: _Opener | None = None)
+import os
+print("Текущая директория:", os.getcwd())
+print("Файл существует?", os.path.exists('homework/eugene_okulik/hw_13/data.txt'))
 
-pattern = (
-    number
-    data
-    defis
-    text
-)
-
-def find_data()
-    
-if data => def number = data_number_of_position
+with open('homework/eugene_okulik/hw_13/data.txt', 'r') as file:
+    var_data = file.readlines()
+for line in var_data:
+    print(line)
