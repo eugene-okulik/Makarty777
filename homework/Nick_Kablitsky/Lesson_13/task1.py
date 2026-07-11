@@ -10,10 +10,38 @@
 # import re
 
 import os
-print("Текущая директория:", os.getcwd())
-print("Файл существует?", os.path.exists('homework/eugene_okulik/hw_13/data.txt'))
+from datetime import datetime, timedelta
 
-with open('homework/eugene_okulik/hw_13/data.txt', 'r') as file:
+print('Текущая директория:', os.getcwd())
+print('Файл существует?', os.path.exists('homework/eugene_okulik/hw_13/data.txt'))
+print('____________________________')
+
+with open('homework/eugene_okulik/hw_13/data.txt', 'r', encoding='UTF-8') as file:
     var_data = file.readlines()
+
 for line in var_data:
-    print(line)
+    line = line.strip()
+    if not line:
+        continue
+
+    parts = line.split(' - ')
+    number_date = parts[0].split('. ')
+    number = int(number_date[0])
+    data_str = number_date[1]
+    action = parts[1]
+
+    date_obj = datetime.strptime(data_str, "%Y-%m-%d %H:%M:%S.%f")
+
+    print(f'{number} - порядковый номер строки')
+    print(f'Тупо цифры с которыми предстоит работать: {number_date[1]}')
+    print(f'Исходник даты целиком: {parts[0]}')
+    print(f'Что нужно сделать: {action}')
+    if number == 1:
+        print(f'На неделю позже: {date_obj + timedelta(weeks = 1)}')
+    elif number == 2:
+        print(f'День недель {date_obj.strftime('%A')}')
+    elif number == 3:
+        print(f'Сколько дней назад была эта дата: {(datetime.now() - date_obj).days}')
+    else:
+        print('Ошибка переменной number, что мешало тут TRY-ить я хз, но это достойный ответ под else')
+    print('____________________________')
