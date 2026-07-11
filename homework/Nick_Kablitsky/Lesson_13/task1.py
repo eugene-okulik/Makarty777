@@ -39,7 +39,7 @@ for line in var_data:
     if number == 1:
         print(f'На неделю позже: {date_obj + timedelta(weeks = 1)}')
     elif number == 2:
-        print(f'День недель {date_obj.strftime('%A')}')
+        print(f'День недель {date_obj.strftime("%A")}')
     elif number == 3:
         print(f'Сколько дней назад была эта дата: {(datetime.now() - date_obj).days}')
     else:
