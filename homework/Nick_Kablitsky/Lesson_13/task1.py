@@ -12,11 +12,19 @@
 import os
 from datetime import datetime, timedelta
 
+# Путь к папке со скриптом
+base_path = os.path.dirname(__file__)
+# Поднимаемся на 3 уровня вверх до корня репозитория
+repo_root = os.path.dirname(os.path.dirname(os.path.dirname(base_path)))
+# Строим путь к файлу
+file_path = os.path.join(repo_root, 'homework', 'eugene_okulik', 'hw_13', 'data.txt')
+
 print('Текущая директория:', os.getcwd())
-print('Файл существует?', os.path.exists('homework/eugene_okulik/hw_13/data.txt'))
+print('Путь к файлу:', file_path)
+print('Файл существует?', os.path.exists(file_path))
 print('____________________________')
 
-with open('homework/eugene_okulik/hw_13/data.txt', 'r', encoding='UTF-8') as file:
+with open(file_path, 'r', encoding='UTF-8') as file:
     var_data = file.readlines()
 
 for line in var_data:
