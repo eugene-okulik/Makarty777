@@ -6,7 +6,7 @@
 # номером один в коде должно быть реализовано то действие, которое написано в файле после этой даты.
 # Ну и так далее для каждой даты.
 # pattern = (number, data, defis, text)
-# re.search(r'\d+', var_data)
+# re.search(r'\d+', var_data
 # import re
 
 import os
