@@ -57,8 +57,8 @@ INSERT INTO marks(id, student_id, lesson_id, grade) VALUES (5, 1, 5, 4);
 INSERT INTO marks(id, student_id, lesson_id, grade) VALUES (6, 1, 6, 5);
 
 -- ПОЛУЧЕНИЕ ИНФОРМАЦИИ
-SELECT 
-    student.student_name, student_group.group_name, books.book_name, 
+SELECT
+    student.student_name, student_group.group_name, books.book_name,
     subjects.subject_name, lessons.lesson_name, marks.grade
 FROM student
 LEFT JOIN student_group ON student.id = student_group.student_id
