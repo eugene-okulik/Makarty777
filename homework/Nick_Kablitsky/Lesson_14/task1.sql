@@ -15,55 +15,62 @@
 # Все запросы, которые сделаете, сохраняйте в файлик с расширением .txt или .sql, и сдавайте как обычно.
 
 -- Создаём студента
-CREATE TABLE student(id INTEGER PRIMARY KEY, student_name TEXT);
-INSERT INTO student(id, student_name) VALUES (1, 'Tony');
+INSERT INTO students (name, second_name) VALUES ('Tony', 'Stark');
 
--- книги и указываем, что студент их взял
-CREATE TABLE books(id INTEGER PRIMARY KEY, book_name TEXT, student_id INTEGER);
-INSERT INTO books(id, book_name, student_id) VALUES (1, 'Demidova', 1);
-INSERT INTO books(id, book_name, student_id) VALUES (2, 'Akrapovich', 1);
-INSERT INTO books(id, book_name, student_id) VALUES (3, 'Vavilova', 1);
+-- Получаем ID созданного студента (предположим, это 23014)
+-- В реальности нужно выполнить SELECT LAST_INSERT_ID() или знать точный ID
+
+-- Книги и указываем, что студент их взял
+INSERT INTO books (title, taken_by_student_id) VALUES ('Demidova', 23014);
+INSERT INTO books (title, taken_by_student_id) VALUES ('Akrapovich', 23014);
+INSERT INTO books (title, taken_by_student_id) VALUES ('Vavilova', 23014);
 
 -- Группа и студент
--- ВАЖНО: 'group' зарезервированное слово, называем student_group
-CREATE TABLE student_group(id INTEGER PRIMARY KEY, group_name TEXT, student_id INTEGER);
-INSERT INTO student_group(id, group_name, student_id) VALUES (1, '11v', 1);
+-- Сначала создаём группу
+INSERT INTO `groups` (title, start_date, end_date) VALUES ('11v', '2024-01-01', '2024-12-31');
+-- Получаем ID группы (предположим, это 22830)
+-- Затем привязываем студента к группе
+UPDATE students SET group_id = 22830 WHERE id = 23014;
 
 -- Предметы
-CREATE TABLE subjects(id INTEGER PRIMARY KEY, subject_name TEXT);
-INSERT INTO subjects(id, subject_name) VALUES (1, 'Match');
-INSERT INTO subjects(id, subject_name) VALUES (2, 'Phusik');
-INSERT INTO subjects(id, subject_name) VALUES (3, 'Art');
+INSERT INTO subjects (title) VALUES ('Match');
+INSERT INTO subjects (title) VALUES ('Phusik');
+INSERT INTO subjects (title) VALUES ('Art');
+-- Получаем ID предметов: Match=23031, Phusik=23032, Art=23033
 
 -- Занятия для каждого предмета
-CREATE TABLE lessons(id INTEGER PRIMARY KEY, lesson_name TEXT, subject_id INTEGER);
--- Математика (id=1)
-INSERT INTO lessons(id, lesson_name, subject_id) VALUES (1, 'Lesson_1_Match', 1);
-INSERT INTO lessons(id, lesson_name, subject_id) VALUES (2, 'Lesson_2_Match', 1);
--- Физика (id=2)
-INSERT INTO lessons(id, lesson_name, subject_id) VALUES (3, 'Lesson_1_Phusik', 2);
-INSERT INTO lessons(id, lesson_name, subject_id) VALUES (4, 'Lesson_2_Phusik', 2);
--- Рисование (id=3)
-INSERT INTO lessons(id, lesson_name, subject_id) VALUES (5, 'Lesson_1_Art', 3);
-INSERT INTO lessons(id, lesson_name, subject_id) VALUES (6, 'Lesson_2_Art', 3);
+-- Математика (id=23031)
+INSERT INTO lessons (title, subject_id) VALUES ('Lesson_1_Match', 23031);
+INSERT INTO lessons (title, subject_id) VALUES ('Lesson_2_Match', 23031);
+-- Физика (id=23032)
+INSERT INTO lessons (title, subject_id) VALUES ('Lesson_1_Phusik', 23032);
+INSERT INTO lessons (title, subject_id) VALUES ('Lesson_2_Phusik', 23032);
+-- Рисование (id=23033)
+INSERT INTO lessons (title, subject_id) VALUES ('Lesson_1_Art', 23033);
+INSERT INTO lessons (title, subject_id) VALUES ('Lesson_2_Art', 23033);
+-- Получаем ID занятий: 76374, 76375, 76376, 76377, 76378, 76379
 
 -- Оценки студенту за все занятия
-CREATE TABLE marks(id INTEGER PRIMARY KEY, student_id INTEGER, lesson_id INTEGER, grade INTEGER);
-INSERT INTO marks(id, student_id, lesson_id, grade) VALUES (1, 1, 1, 5);
-INSERT INTO marks(id, student_id, lesson_id, grade) VALUES (2, 1, 2, 4);
-INSERT INTO marks(id, student_id, lesson_id, grade) VALUES (3, 1, 3, 5);
-INSERT INTO marks(id, student_id, lesson_id, grade) VALUES (4, 1, 4, 3);
-INSERT INTO marks(id, student_id, lesson_id, grade) VALUES (5, 1, 5, 4);
-INSERT INTO marks(id, student_id, lesson_id, grade) VALUES (6, 1, 6, 5);
+INSERT INTO marks (value, lesson_id, student_id) VALUES (5, 76374, 23014);
+INSERT INTO marks (value, lesson_id, student_id) VALUES (4, 76375, 23014);
+INSERT INTO marks (value, lesson_id, student_id) VALUES (5, 76376, 23014);
+INSERT INTO marks (value, lesson_id, student_id) VALUES (3, 76377, 23014);
+INSERT INTO marks (value, lesson_id, student_id) VALUES (4, 76378, 23014);
+INSERT INTO marks (value, lesson_id, student_id) VALUES (5, 76379, 23014);
 
 -- ПОЛУЧЕНИЕ ИНФОРМАЦИИ
 SELECT
-    student.student_name, student_group.group_name, books.book_name,
-    subjects.subject_name, lessons.lesson_name, marks.grade
-FROM student
-LEFT JOIN student_group ON student.id = student_group.student_id
-LEFT JOIN books ON student.id = books.student_id
-LEFT JOIN marks ON student.id = marks.student_id
-LEFT JOIN lessons ON marks.lesson_id = lessons.id
-LEFT JOIN subjects ON lessons.subject_id = subjects.id
-WHERE student.student_name = 'Tony';
+    s.name AS student_name,
+    s.second_name AS student_second_name,
+    g.title AS group_name,
+    b.title AS book_name,
+    sub.title AS subject_name,
+    l.title AS lesson_name,
+    m.value AS grade
+FROM students s
+LEFT JOIN `groups` g ON s.group_id = g.id
+LEFT JOIN books b ON s.id = b.taken_by_student_id
+LEFT JOIN marks m ON s.id = m.student_id
+LEFT JOIN lessons l ON m.lesson_id = l.id
+LEFT JOIN subjects sub ON l.subject_id = sub.id
+WHERE s.id = 23014;
